@@ -1,0 +1,31 @@
+name: CI/CD for Next.js
+
+on:
+  push:
+    branches:
+      - main  # Uruchamia się, gdy pushujesz do "main"
+  pull_request:
+    branches:
+      - main  # Uruchamia się dla PR do "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Pobieranie repozytorium
+        uses: actions/checkout@v3
+
+      - name: 🔧 Instalacja Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Instalacja zależności
+        run: npm install
+
+      - name: 🏗 Budowanie aplikacji Next.js
+        run: npm run build
+
+      - name: ✅ Uruchamianie testów
+        run: npm test
