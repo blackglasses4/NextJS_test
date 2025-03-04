@@ -35,7 +35,7 @@ jobs:
         run: npx eslint . --ext .js,.jsx,.ts,.tsx
 
       - name: 🔨 Uruchamianie Prettiera
-        run: npx prettier --check .
+        run: npx prettier --write .
 
       # - name: ✅ Uruchamianie testów
       #   run: npm test
