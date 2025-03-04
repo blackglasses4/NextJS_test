@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - main  # Uruchamia się, gdy pushujesz do "main"
+      - develop # Uruchamia się dla pushu do "develop"
+      - feature/*  # Uruchamia się dla pushu do gałęzi w których kończą się "feature/"
   pull_request:
     branches:
       - main  # Uruchamia się dla PR do "main"
+      - develop # Uruchamia się dla PR do "develop"
+      - feature/*  # Uruchamia się dla PR do gałęzi w których kończą się "feature/"
 
 jobs:
   build:
@@ -27,5 +31,16 @@ jobs:
       - name: 🏗 Budowanie aplikacji Next.js
         run: npm run build
 
+      - name: 🔍 Uruchamianie ESLint
+        run: npx eslint . --ext .js,.jsx,.ts,.tsx
+
+      - name: 🔨 Uruchamianie Prettiera
+        run: npx prettier --check .
+
       # - name: ✅ Uruchamianie testów
       #   run: npm test
+
+      # - name: 🚀 Uruchamianie testów wydajnościowych (Lighthouse)
+      #   uses: treosh/lighthouse-ci-action@v2
+      #   with:
+      #     urls: "http://localhost:3000"
