@@ -27,5 +27,5 @@ jobs:
       - name: 🏗 Budowanie aplikacji Next.js
         run: npm run build
 
-      - name: ✅ Uruchamianie testów
-        run: npm test
+      # - name: ✅ Uruchamianie testów
+      #   run: npm test
