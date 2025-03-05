@@ -30,7 +30,7 @@ export default function Header() {
                 <Link
                   href={link.href}
                   style={{
-                    color: isActive ? "green" : "black",
+                    color: isActive ? "white" : "black",
                   }}
                 >
                   {link.name}
